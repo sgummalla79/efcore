@@ -215,12 +215,12 @@ ORDER BY [a].[Species]");
             base.Can_query_all_animal_views();
 
             AssertSql(
-                @"SELECT [a].[CountryId], [a].[Discriminator], [a].[Name], [a].[EagleId], [a].[IsFlightless], [a].[Group], [a].[FoundOn]
+                @"SELECT [s].[CountryId], [s].[Discriminator], [s].[Name], [s].[EagleId], [s].[IsFlightless], [s].[Group], [s].[FoundOn]
 FROM (
     SELECT * FROM Animal
-) AS [a]
-WHERE [a].[Discriminator] IN (N'Eagle', N'Kiwi')
-ORDER BY [a].[CountryId]");
+) AS [s]
+WHERE [s].[Discriminator] IN (N'Eagle', N'Kiwi')
+ORDER BY [s].[CountryId]");
         }
 
         public override void Can_query_all_plants()

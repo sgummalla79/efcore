@@ -175,6 +175,14 @@ namespace Microsoft.EntityFrameworkCore
             => property.FindAnnotation(RelationalAnnotationNames.ColumnType)?.GetConfigurationSource();
 
         /// <summary>
+        ///     Returns the columns to which the property is mapped.
+        /// </summary>
+        /// <param name="property"> The property. </param>
+        /// <returns> The name of the table to which the entity type is mapped. </returns>
+        public static IEnumerable<IColumnMapping> GetColumnMappings([NotNull] this IProperty property) =>
+            (IEnumerable<IColumnMapping>)property[RelationalAnnotationNames.ColumnMappings];
+
+        /// <summary>
         ///     Returns the SQL expression that is used as the default value for the column this property is mapped to.
         /// </summary>
         /// <param name="property"> The property. </param>
